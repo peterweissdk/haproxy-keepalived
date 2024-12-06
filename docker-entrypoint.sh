@@ -2,7 +2,7 @@
 set -e
 
 # Set timezone if provided
-if [ ! -z "$TZ" ]; then
+if [ -n "$TZ" ]; then
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
     echo $TZ > /etc/timezone
 fi
