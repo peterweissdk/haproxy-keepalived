@@ -3,7 +3,6 @@
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/_/haproxy)
 [![Alpine Linux](https://img.shields.io/badge/Alpine_Linux-%230D597F.svg?style=for-the-badge&logo=alpine-linux&logoColor=white)](https://www.alpinelinux.org/)
 [![HAProxy](https://img.shields.io/badge/HAProxy-red.svg?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEwSURBVDhPY/hPIWBgYGQAAu7q/1DiYmBkZAYy4QDEQQXo4D8jIwMzM7OHm5ubKwMDA8P///8Z/v37l/Ts2bOd////f/Tnzx9pJiYmBmZm5v+MjIwMQBoFgDQxgxggG8QGYVZWVgcg9RAQ2w0ICAgAsUF8GB/EBwEQHyYO1gji/P//n+Hbt28MDx8+ZHj16hXDhw8fGH79+gXWDAJv3rxhePLkCcPz588Z3r9/z/Dz50+Gf//+wdWDNf7+/Zvhw4cPDNevX2e4desWw5s3bxiePn0KVgQCID6IDwMgPkwcRQMIcHFxMQgICDAICgoyCAgIwMVAfBAOiA8SQNEIBEA2iAZxQDYIg/ggHAyAGBYWFgZPnz49DAQXgXgXEAsBsQwQcwExJ5D+CcR3gfgMEK8C4hMAm5AshR7lrIYAAAAASUVORK5CYII=)](https://www.haproxy.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A robust, production-ready Docker container combining HAProxy load balancing with Keepalived for high availability. This solution provides automatic failover capabilities and efficient load distribution for your services.
 
@@ -11,7 +10,6 @@ A robust, production-ready Docker container combining HAProxy load balancing wit
 
 - 🔄 **High Availability**: Automatic failover using Keepalived VRRP
 - ⚖️ **Load Balancing**: Advanced load balancing with HAProxy
-- 🔒 **SSL/TLS Support**: Built-in SSL termination capabilities
 - 🎯 **Health Checks**: Automated service health monitoring
 - 🛠️ **Easy Configuration**: Simple environment variable configuration
 - 🐳 **Alpine-based**: Lightweight and secure base image
@@ -104,7 +102,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 - see the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
