@@ -1,4 +1,4 @@
-FROM haproxy:lts-alpine
+FROM haproxy:alpine3.20
 
 USER root
 
