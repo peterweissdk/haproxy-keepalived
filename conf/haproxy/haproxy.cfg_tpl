@@ -1,0 +1,13 @@
+frontend ${NAME_FRONTEND}    # name of frontend
+    bind *:${PORT_FRONTEND}   # port number
+    mode ${PROTOCOL_FRONTEND}   # protocol eg. tcp
+    option ${OPTION_FRONTEND}   # option eg. tcplog
+    default_backend ${DEFAULT_BACKEND}    # select default backend
+
+backend ${NAME_BACKEND}    # name of backend
+    mode ${PROTOCOL_BACKEND}   # mode eg. tcp
+    option ${OPTION_BACKEND}   # option eg. tcp-check
+    balance ${BALANCE_BACKEND}   # scheduling eg. roundrobin
+    default-server inter 10s downinter 5s
+    server ${NAME_SERVER1} ${IP_SERVER1}:${PORT_SERVER1} check   # backend server 1
+    server ${NAME_SERVER2} ${IP_SERVER2}:${PORT_SERVER2} check    # backend server 2

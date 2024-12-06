@@ -1,0 +1,30 @@
+global_defs {
+  enable_script_security
+  script_user root
+}
+
+vrrp_script chk_haproxy {
+    script '/usr/bin/killall -0 haproxy' # faster than pidof
+    interval 2
+}
+
+vrrp_instance ${VRRP_INSTANCE} {
+    interface ${INTERFACE}
+    state ${STATE}  # MASTER on lb-1, BACKUP on lb-2
+    priority ${PRIORITY}  # 200 on lb-1, 100 on lb-2
+
+    virtual_router_id ${ROUTER_ID}
+
+    virtual_ipaddress {
+        ${VIRTUAL_IPS} # Remember CIDR notation
+    }
+
+    track_script {
+        chk_haproxy
+    }
+
+    unicast_src_ip ${UNICAST_SRC_IP}  # The IP address of this machine
+    unicast_peer {
+        ${UNICAST_PEERS}  # The IP address of peer machines
+    }
+}
