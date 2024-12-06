@@ -74,7 +74,7 @@ docker build -t haproxy-keepalived .
 
 ## 📝 Directory Structure
 
-```
+```bash
 .
 ├── conf/
 │   ├── haproxy/
