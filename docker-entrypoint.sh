@@ -3,8 +3,8 @@ set -e
 
 # Set timezone if provided
 if [ -n "$TZ" ]; then
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
-    echo $TZ > /etc/timezone
+    ln -snf /usr/share/zoneinfo/"$TZ" /etc/localtime
+    echo "$TZ" > /etc/timezone
 fi
 
 # Initialize any first-time configurations if needed
