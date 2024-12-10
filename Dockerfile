@@ -8,10 +8,10 @@ LABEL "org.opencontainers.image.description"="HAProxy load balancing with Keepal
 LABEL "org.opencontainers.image.vendor"="Peter Weiss"
 LABEL "org.opencontainers.image.version"=${version}
 LABEL "org.opencontainers.image.created"=${buildDate}
-LABEL "org.opencontainers.image.url"
+# LABEL "org.opencontainers.image.url"
 LABEL "org.opencontainers.image.source"="https://github.com/peterweissdk/haproxy-keepalived"
-LABEL "org.opencontainers.image.revision"
-LABEL "org.opencontainers.image.documentation"
+# LABEL "org.opencontainers.image.revision"
+# LABEL "org.opencontainers.image.documentation"
 LABEL "org.opencontainers.image.license"="GNU GENERAL PUBLIC LICENSE v3.0"
 
 USER root
