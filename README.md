@@ -1,9 +1,10 @@
 # 🔄 HAProxy with Keepalived Container
 
-[![Static Badge](https://img.shields.io/badge/Docker-Container-red?style=flat&logo=docker&logoSize=auto&labelColor=white)](https://docker.com)
-[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/_/haproxy)
-[![Alpine Linux](https://img.shields.io/badge/Alpine_Linux-%230D597F.svg?style=for-the-badge&logo=alpine-linux&logoColor=white)](https://www.alpinelinux.org/)
-[![HAProxy](https://img.shields.io/badge/HAProxy-red.svg?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEwSURBVDhPY/hPIWBgYGQAAu7q/1DiYmBkZAYy4QDEQQXo4D8jIwMzM7OHm5ubKwMDA8P///8Z/v37l/Ts2bOd////f/Tnzx9pJiYmBmZm5v+MjIwMQBoFgDQxgxggG8QGYVZWVgcg9RAQ2w0ICAgAsUF8GB/EBwEQHyYO1gji/P//n+Hbt28MDx8+ZHj16hXDhw8fGH79+gXWDAJv3rxhePLkCcPz588Z3r9/z/Dz50+Gf//+wdWDNf7+/Zvhw4cPDNevX2e4desWw5s3bxiePn0KVgQCID6IDwMgPkwcRQMIcHFxMQgICDAICgoyCAgIwMVAfBAOiA8SQNEIBEA2iAZxQDYIg/ggHAyAGBYWFgZPnz49DAQXgXgXEAsBsQwQcwExJ5D+CcR3gfgMEK8C4hMAm5AshR7lrIYAAAAASUVORK5CYII=)](https://www.haproxy.org/)
+[![Static Badge](https://img.shields.io/badge/Docker-Container-red?style=flat&logo=docker&logoSize=auto&labelColor=white)](https://docker.com/)
+[![Static Badge](https://img.shields.io/badge/Alpine-v3.21-red?style=flat&logo=alpinelinux&logoSize=auto&labelColor=white)](https://www.alpinelinux.org/)
+[![Static Badge](https://img.shields.io/badge/HAProxy-v-red?style=flat&logoSize=auto&labelColor=white)](https://www.haproxy.org/)
+[![Static Badge](https://img.shields.io/badge/KeepAliveD-v-red?style=flat&logoSize=auto&labelColor=white)](https://keepalived.org/)
+[![Static Badge](https://img.shields.io/badge/GPL-v3-red?style=flat&logo=gnu&logoSize=auto&labelColor=white)](https://www.gnu.org/licenses/gpl-3.0.en.html/)
 
 A robust, production-ready Docker container combining HAProxy load balancing with Keepalived for high availability. This solution provides automatic failover capabilities and efficient load distribution for your services.
 
