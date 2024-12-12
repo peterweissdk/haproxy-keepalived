@@ -1,6 +1,6 @@
 # 🔄 HAProxy with Keepalived Container
 
-[![Static Badge](https://img.shields.io/badge/Docker-Container-red?style=flat&logo=docker&logoSize=auto&labelColor=white)](https://docker.com/)
+[![Static Badge](https://img.shields.io/badge/Docker-Container-white?style=flat&logo=docker&logoColor=white&logoSize=auto&labelColor=black)](https://docker.com/)
 [![Static Badge](https://img.shields.io/badge/Alpine-v3.21-red?style=flat&logo=alpinelinux&logoSize=auto&labelColor=white)](https://www.alpinelinux.org/)
 [![Static Badge](https://img.shields.io/badge/HAProxy-v-red?style=flat&logoSize=auto&labelColor=white)](https://www.haproxy.org/)
 [![Static Badge](https://img.shields.io/badge/KeepAliveD-v-red?style=flat&logoSize=auto&labelColor=white)](https://keepalived.org/)
