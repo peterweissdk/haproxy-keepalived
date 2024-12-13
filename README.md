@@ -98,7 +98,13 @@ docker build -t haproxy-keepalived \
 The container includes built-in health checks for both HAProxy and Keepalived services. Monitor the status using:
 
 ```bash
-docker exec haproxy-keepalived supervisorctl status
+docker inspect --format='{{json .State.ExitCode}}' <container_name>
+```
+
+View the Docker health check logs with the following command:
+
+```bash
+docker inspect --format='{{json .State.Health}}' <container_name>
 ```
 
 ## 🤝 Contributing
