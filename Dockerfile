@@ -26,11 +26,17 @@ RUN apk add --no-cache \
     supervisor=4.2.5-r5 \
     ipvsadm=1.31-r3 \
     iproute2=6.11.0-r0 \
-    gettext=0.22.5-r0 && \
+    gettext=0.22.5-r0 \
+    socat=1.8.0.0-r0 && \
     rm -rf /var/cache/apk/*
 
 # Create necessary directories for supervisor
 RUN mkdir -p /etc/supervisor.d /run/supervisor
+
+# Create HAProxy socket directory
+RUN mkdir -p /var/run && \
+    touch /var/run/haproxy.sock && \
+    chmod 666 /var/run/haproxy.sock
 
 # Copy supervisor configuration files
 COPY supervisord.conf /etc/supervisord.conf
@@ -40,13 +46,19 @@ COPY conf/supervisor/* /etc/supervisor.d/
 COPY conf/haproxy/haproxy.cfg_tpl /usr/local/etc/haproxy/haproxy.cfg_tpl
 COPY conf/keepalived/keepalived.conf_tpl /etc/keepalived/keepalived.conf_tpl
 
+# Copy health check script
+COPY healthcheck.sh /healthcheck.sh
+RUN chmod +x /healthcheck.sh
+
 # Copy entrypoint script
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
+
+# Add health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 CMD /healthcheck.sh
 
 # Expose ports
 EXPOSE 80 443
 
 # Set entrypoint script
 ENTRYPOINT ["/docker-entrypoint.sh"]
-
