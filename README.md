@@ -1,10 +1,10 @@
 # 🔄 HAProxy with Keepalived Container
 
 [![Static Badge](https://img.shields.io/badge/Docker-Container-white?style=flat&logo=docker&logoColor=white&logoSize=auto&labelColor=black)](https://docker.com/)
-[![Static Badge](https://img.shields.io/badge/Alpine-v3.21-red?style=flat&logo=alpinelinux&logoSize=auto&labelColor=white)](https://www.alpinelinux.org/)
-[![Static Badge](https://img.shields.io/badge/HAProxy-v-red?style=flat&logoSize=auto&labelColor=white)](https://www.haproxy.org/)
-[![Static Badge](https://img.shields.io/badge/KeepAliveD-v-red?style=flat&logoSize=auto&labelColor=white)](https://keepalived.org/)
-[![Static Badge](https://img.shields.io/badge/GPL-v3-red?style=flat&logo=gnu&logoSize=auto&labelColor=white)](https://www.gnu.org/licenses/gpl-3.0.en.html/)
+[![Static Badge](https://img.shields.io/badge/Alpine-v3.21-white?style=flat&logo=alpinelinux&logoColor=white&logoSize=auto&labelColor=black)](https://www.alpinelinux.org/)
+[![Static Badge](https://img.shields.io/badge/HAProxy-v-white?style=flat&logoColor=white&labelColor=black)](https://www.haproxy.org/)
+[![Static Badge](https://img.shields.io/badge/KeepAliveD-v-white?style=flat&logoColor=white&labelColor=black)](https://keepalived.org/)
+[![Static Badge](https://img.shields.io/badge/GPL-v3-white?style=flat&logo=gnu&logoColor=white&logoSize=auto&labelColor=black)](https://www.gnu.org/licenses/gpl-3.0.en.html/)
 
 A robust, production-ready Docker container combining HAProxy load balancing with Keepalived for high availability. This solution provides automatic failover capabilities and efficient load distribution for your services.
 
