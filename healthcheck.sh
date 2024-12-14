@@ -1,4 +1,5 @@
 #!/bin/sh
+
 set -e
 
 # Check if HAProxy is running and responding
@@ -29,3 +30,4 @@ keepalived_check
 
 echo "Health check passed"
 exit 0
+
