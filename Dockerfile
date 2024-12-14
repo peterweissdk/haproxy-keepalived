@@ -11,7 +11,7 @@ LABEL "org.opencontainers.image.title"="haproxy-keepalived" \
   "org.opencontainers.image.vendor"="Peter Weiss" \
   "org.opencontainers.image.version"=${version} \
   "org.opencontainers.image.created"=${buildDate} \
-# LABEL "org.opencontainers.image.url"
+# (Docker HUB) LABEL "org.opencontainers.image.url"
   "org.opencontainers.image.source"="https://github.com/peterweissdk/haproxy-keepalived" \
 # LABEL "org.opencontainers.image.revision"
 # LABEL "org.opencontainers.image.documentation"
