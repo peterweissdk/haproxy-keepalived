@@ -20,3 +20,4 @@ envsubst < /usr/local/etc/haproxy/haproxy.cfg_tpl > /usr/local/etc/haproxy/hapro
 
 # Start supervisord in the foreground
 exec /usr/bin/supervisord -n -c /etc/supervisord.conf
+
