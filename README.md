@@ -74,6 +74,7 @@ cd haproxy-keepalived
 docker build -t haproxy-keepalived \
   --build-arg buildDate=$(date +'%Y-%m-%d') \
   --build-arg version=CONTAINER-VERSION \
+  --build-arg revision=$(git rev-parse --short HEAD)
   .
 ```
 
