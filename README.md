@@ -91,6 +91,8 @@ docker build -t haproxy-keepalived \
 ├── Dockerfile
 ├── docker-entrypoint.sh
 ├── supervisord.conf
+├── healthcheck.sh
+├── LICENSE
 └── README.md
 ```
 
