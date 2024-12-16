@@ -13,7 +13,7 @@ LABEL "org.opencontainers.image.title"="haproxy-keepalived" \
   "org.opencontainers.image.created"=${buildDate} \
 # (Docker HUB) LABEL "org.opencontainers.image.url"
   "org.opencontainers.image.source"="https://github.com/peterweissdk/haproxy-keepalived" \
-  "org.opencontainers.image.revision"=${revision}
+  "org.opencontainers.image.revision"=${revision} \
 # LABEL "org.opencontainers.image.documentation"
   "org.opencontainers.image.license"="GNU GENERAL PUBLIC LICENSE v3.0"
 
