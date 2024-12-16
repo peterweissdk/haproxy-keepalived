@@ -88,6 +88,9 @@ docker build -t haproxy-keepalived \
 │   ├── keepalived/
 │   │   └── keepalived.conf_tpl
 │   └── supervisor/
+│       ├── haproxy.ini
+│       └── keepalived.ini
+├── .env
 ├── Dockerfile
 ├── docker-entrypoint.sh
 ├── supervisord.conf
