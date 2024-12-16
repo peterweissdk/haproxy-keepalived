@@ -10,11 +10,12 @@ A robust, production-ready Docker container combining HAProxy load balancing wit
 
 ## ✨ Features
 
-- 🔄 **High Availability**: Automatic failover using Keepalived VRRP
-- ⚖️ **Load Balancing**: Advanced load balancing with HAProxy
-- 🎯 **Health Checks**: Automated service health monitoring
-- 🛠️ **Easy Configuration**: Simple environment variable configuration
-- 🐳 **Alpine-based**: Lightweight and secure base image
+- **Fixed Scale**: Haproxy Virtual IP's for 2 servers, and
+- **High Availability**: Automatic failover using Keepalived VRRP
+- **Load Balancing**: Advanced load balancing with HAProxy
+- **Health Checks**: Automated service health monitoring
+- **Easy Configuration**: Simple environment variable configuration
+- **Alpine-based**: Lightweight and secure base image
 
 ## 🚀 Quick Start
 
@@ -35,6 +36,12 @@ docker run -d \
 
 ### Environment Variables
 
+#### System Configuration
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| TZ | System Timezone | Europe/Berlin |
+
 #### Keepalived Settings
 
 | Variable | Description | Example |
@@ -44,27 +51,39 @@ docker run -d \
 | STATE | Node state (MASTER/BACKUP) | MASTER |
 | PRIORITY | Node priority (1-255) | 100 |
 | ROUTER_ID | Unique router ID | 51 |
-| VIRTUAL_IPS | Virtual IP addresses | 192.168.1.10 |
-| UNICAST_SRC_IP | Source IP for unicast | 192.168.1.1 |
-| UNICAST_PEERS | Peer IP addresses | 192.168.1.2,192.168.1.3 |
+| VIRTUAL_IPS | Virtual IP address | 192.168.1.10/24 |
+| UNICAST_SRC_IP | Source IP for unicast | 192.168.1.2 |
+| UNICAST_PEERS | Peer IP address | 192.168.1.3 |
 
 #### HAProxy Frontend Settings
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| NAME_FRONTEND | Frontend name | http-in |
+| NAME_FRONTEND | Frontend name | ha-frontend |
 | PORT_FRONTEND | Listen port | 80 |
-| PROTOCOL_FRONTEND | Frontend protocol | http |
+| PROTOCOL_FRONTEND | Frontend protocol | tcp |
 | OPTION_FRONTEND | Frontend options | tcplog |
-| DEFAULT_BACKEND | Default backend name | servers |
+| DEFAULT_BACKEND | Default backend name | ha-backend |
 
 #### HAProxy Backend Settings
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| NAME_BACKEND | Backend name | servers |
-| PROTOCOL_BACKEND | Backend protocol | http |
-| OPTION_BACKEND | Backend options | httpchk |
+| NAME_BACKEND | Backend name | ha-backend |
+| PROTOCOL_BACKEND | Backend protocol | tcp |
+| OPTION_BACKEND | Backend options | tcp-check |
+| BALANCE_BACKEND | Server scheduling | roundrubin |
+
+#### Backend Servers
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| NAME_SERVER1 | Backend name | backend-server1 |
+| IP_SERVER1 | Server IP address | 192.168.1.4 |
+| PORT_SERVER1 | Listen port | 81 |
+| NAME_SERVER2 | Backend name | backend-server2 |
+| IP_SERVER2 | Server IP address | 192.168.1.5 |
+| PORT_SERVER2 | Listen port | 81 |
 
 ## 🏗️ Building from Source
 
