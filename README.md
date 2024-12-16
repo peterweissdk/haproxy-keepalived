@@ -2,7 +2,7 @@
 
 [![Static Badge](https://img.shields.io/badge/Docker-Container-white?style=flat&logo=docker&logoColor=white&logoSize=auto&labelColor=black)](https://docker.com/)
 [![Static Badge](https://img.shields.io/badge/Alpine-V3.21-white?style=flat&logo=alpinelinux&logoColor=white&logoSize=auto&labelColor=black)](https://www.alpinelinux.org/)
-[![Static Badge](https://img.shields.io/badge/HAProxy-V3.0.6-white?style=flat&logoColor=white&labelColor=black)](https://www.haproxy.org/)
+[![Static Badge](https://img.shields.io/badge/HAProxy-V3.0.7-white?style=flat&logoColor=white&labelColor=black)](https://www.haproxy.org/)
 [![Static Badge](https://img.shields.io/badge/KeepAliveD-V2.3.1-white?style=flat&logoColor=white&labelColor=black)](https://keepalived.org/)
 [![Static Badge](https://img.shields.io/badge/GPL-V3-white?style=flat&logo=gnu&logoColor=white&logoSize=auto&labelColor=black)](https://www.gnu.org/licenses/gpl-3.0.en.html/)
 
