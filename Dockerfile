@@ -21,13 +21,13 @@ LABEL "org.opencontainers.image.title"="haproxy-keepalived" \
 
 # Install required packages
 RUN apk add --no-cache \
-    haproxy=3.0.6-r0 \
+    haproxy=3.0.7-r0 \
     keepalived=2.3.1-r0 \
     supervisor=4.2.5-r5 \
     ipvsadm=1.31-r3 \
     iproute2=6.11.0-r0 \
     gettext=0.22.5-r0 \
-    socat=1.8.0.0-r0 && \
+    socat=1.8.0.1-r0 && \
     rm -rf /var/cache/apk/*
 
 # Create necessary directories for supervisor
