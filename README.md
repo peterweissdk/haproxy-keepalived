@@ -10,12 +10,12 @@ A robust, production-ready Docker container combining HAProxy load balancing wit
 
 ## ✨ Features
 
-- **Fixed Scale**: Haproxy Virtual IP's for 2 servers, and
 - **High Availability**: Automatic failover using Keepalived VRRP
 - **Load Balancing**: Advanced load balancing with HAProxy
 - **Health Checks**: Automated service health monitoring
 - **Easy Configuration**: Simple environment variable configuration
 - **Alpine-based**: Lightweight and secure base image
+- **Fixed Scale**: 2 load balacing/failover deployments, serving 2 backend servers
 
 ## 🚀 Quick Start
 
@@ -136,10 +136,11 @@ docker inspect --format='{{json .State.Health}}' <container_name>
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## 🆘 Support
+
+If you encounter any issues or need support, please file an issue on the GitHub repository.
+
 ## 📄 License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
-
-If you encounter any issues or need support, please file an issue on the GitHub repository.
