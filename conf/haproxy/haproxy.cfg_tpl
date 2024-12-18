@@ -1,3 +1,22 @@
+global
+  stats socket /var/run/haproxy.sock mode 666 level admin expose-fd listeners
+  log stdout format raw local0 info
+
+defaults
+  mode http
+  log global
+  timeout client 10s
+  timeout connect 5s
+  timeout server 10s
+
+frontend stats
+  mode http
+  bind *:8880
+  stats enable
+  stats uri /stats
+  stats refresh 10s
+  stats admin if LOCALHOST
+
 frontend ${NAME_FRONTEND}    # name of frontend
     bind *:${PORT_FRONTEND}   # port number
     mode ${PROTOCOL_FRONTEND}   # protocol eg. tcp
