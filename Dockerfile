@@ -5,6 +5,7 @@ FROM alpine:3.21
 ARG version
 ARG buildDate
 ARG revision
+
 # Add labels
 LABEL "org.opencontainers.image.title"="haproxy-keepalived" \
   "org.opencontainers.image.description"="HAProxy load balancing with Keepalived for high availability" \
@@ -16,8 +17,6 @@ LABEL "org.opencontainers.image.title"="haproxy-keepalived" \
   "org.opencontainers.image.revision"=${revision} \
 # LABEL "org.opencontainers.image.documentation"
   "org.opencontainers.image.license"="GNU GENERAL PUBLIC LICENSE v3.0"
-
-# USER root
 
 # Install required packages
 RUN apk add --no-cache \
@@ -57,8 +56,8 @@ RUN chmod +x /docker-entrypoint.sh
 # Add health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 CMD /healthcheck.sh
 
-# Expose ports
-EXPOSE 80 443
+# Expose port for HAProxy stats
+EXPOSE 8880
 
 # Set entrypoint script
 ENTRYPOINT ["/docker-entrypoint.sh"]
