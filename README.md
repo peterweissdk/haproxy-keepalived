@@ -16,6 +16,7 @@ A robust, production-ready Docker container combining HAProxy load balancing wit
 - **Easy Configuration**: Simple environment variable configuration
 - **Alpine-based**: Lightweight and secure base image
 - **Fixed Scale**: 2 load balacing/failover deployments, serving 2 backend servers
+- **HAProxy stats**: Near real-time feed of the proxied services
 
 ## 🚀 Quick Start
 
