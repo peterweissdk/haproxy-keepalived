@@ -89,7 +89,7 @@ docker run -d \
 ## 🏗️ Building from Source
 
 ```bash
-git clone https://github.com/yourusername/haproxy-keepalived.git
+git clone https://github.com/peterweissdk/haproxy-keepalived.git
 cd haproxy-keepalived
 docker build -t haproxy-keepalived \
   --build-arg buildDate=$(date +'%Y-%m-%d') \
