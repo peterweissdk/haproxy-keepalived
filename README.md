@@ -56,6 +56,16 @@ docker run -d \
 | UNICAST_SRC_IP | Source IP for unicast | 192.168.1.2 |
 | UNICAST_PEERS | Peer IP address | 192.168.1.3 |
 
+#### HAProxy Default Settings
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| PROTOCOL_DEFAULT | Default protocol | tcp |
+| TIMEOUT_CLIENT_DEFAULT | Client timeout (seconds) | 10 |
+| TIMEOUT_CONNECT_DEFAULT | Timeout, connect to a backend server (seconds) | 5 |
+| TIMEOUT_SERVER_DEFAULT | Server timeout (seconds) | 10 |
+
+
 #### HAProxy Frontend Settings
 
 | Variable | Description | Example |
