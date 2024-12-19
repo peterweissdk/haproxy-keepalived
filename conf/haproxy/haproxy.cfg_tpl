@@ -5,9 +5,9 @@ global
 defaults
   mode ${PROTOCOL_DEFAULT} # Sets how HAProxy treats requests (http/tcp)
   log global
-  timeout client ${TIMEOUT_CLIENT_DEFAULT}s # How long to wait when trying to connect to a backend serveR
-  timeout connect ${TIMEOUT_CONNECT_DEFAULT}s # How long to wait for the server to send back data
-  timeout server ${TIMEOUT_SERVER_DEFAULT}s # How long to wait for the client to send a complete (http/tcp) request
+  timeout client ${TIMEOUT_CLIENT_DEFAULT}s # How long HAProxy should wait for a client to send data
+  timeout connect ${TIMEOUT_CONNECT_DEFAULT}s # How long to wait when trying to connect to a backend server
+  timeout server ${TIMEOUT_SERVER_DEFAULT}s # How long to wait for the server to send back data
 
 frontend stats
   mode http
