@@ -3,11 +3,11 @@ global
   log stdout format raw local0 info
 
 defaults
-  mode http
+  mode ${PROTOCOL_DEFAULT} # Sets how HAProxy treats requests (http/tcp)
   log global
-  timeout client 10s
-  timeout connect 5s
-  timeout server 10s
+  timeout client ${TIMEOUT_CLIENT_DEFAULT}s # How long to wait when trying to connect to a backend serveR
+  timeout connect ${TIMEOUT_CONNECT_DEFAULT}s # How long to wait for the server to send back data
+  timeout server ${TIMEOUT_SERVER_DEFAULT}s # How long to wait for the client to send a complete (http/tcp) request
 
 frontend stats
   mode http
