@@ -6,7 +6,7 @@
 [![Static Badge](https://img.shields.io/badge/KeepAliveD-V2.3.1-white?style=flat&logoColor=white&labelColor=black)](https://keepalived.org/)
 [![Static Badge](https://img.shields.io/badge/GPL-V3-white?style=flat&logo=gnu&logoColor=white&logoSize=auto&labelColor=black)](https://www.gnu.org/licenses/gpl-3.0.en.html/)
 
-A robust, production-ready Docker container combining HAProxy load balancing with Keepalived for high availability. This solution provides automatic failover capabilities and efficient load distribution for your services.
+A robust, selfhost-ready Docker container combining HAProxy load balancing with Keepalived for high availability. This solution provides automatic failover capabilities and efficient load distribution for your services.
 
 ## ✨ Features
 
