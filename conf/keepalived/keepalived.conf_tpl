@@ -1,7 +1,7 @@
 global_defs {
   enable_script_security
   script_user root
-  max_auto_priority=-1 # 0 doesn't use automatic priority increases, and is the default. -1 disable the warning message at startup
+  max_auto_priority=[-1] # 0 doesn't use automatic priority increases, and is the default. -1 disable the warning message at startup
 }
 
 vrrp_script chk_haproxy {
