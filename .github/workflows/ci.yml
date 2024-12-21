@@ -15,7 +15,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKER_HUB_UNAME }}
-          password: ${{ secrets.DOCKER_HUB_PASSWD }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
