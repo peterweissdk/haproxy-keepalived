@@ -7,16 +7,16 @@ ARG buildDate
 ARG revision
 
 # Add labels
-LABEL "org.opencontainers.image.title"="haproxy-keepalived" \
-  "org.opencontainers.image.description"="HAProxy load balancing with Keepalived for high availability" \
-  "org.opencontainers.image.vendor"="Peter Weiss" \
-  "org.opencontainers.image.version"=${version} \
-  "org.opencontainers.image.created"=${buildDate} \
+#LABEL "org.opencontainers.image.title"="haproxy-keepalived" \
+#  "org.opencontainers.image.description"="HAProxy load balancing with Keepalived for high availability" \
+#  "org.opencontainers.image.vendor"="Peter Weiss" \
+#  "org.opencontainers.image.version"=${version} \
+#  "org.opencontainers.image.created"=${buildDate} \
 # (Docker HUB) LABEL "org.opencontainers.image.url"
-  "org.opencontainers.image.source"="https://github.com/peterweissdk/haproxy-keepalived" \
-  "org.opencontainers.image.revision"=${revision} \
+#  "org.opencontainers.image.source"="https://github.com/peterweissdk/haproxy-keepalived" \
+#  "org.opencontainers.image.revision"=${revision} \
 # LABEL "org.opencontainers.image.documentation"
-  "org.opencontainers.image.license"="GNU GENERAL PUBLIC LICENSE v3.0"
+#  "org.opencontainers.image.license"="GNU GENERAL PUBLIC LICENSE v3.0"
 
 # Install required packages
 RUN apk add --no-cache \
