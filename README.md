@@ -51,10 +51,10 @@ docker run -d \
 | INTERFACE | Network interface | eth0 |
 | STATE | Node state (MASTER/BACKUP) | MASTER |
 | PRIORITY | Node priority (1-255) | 100 |
-| ROUTER_ID | Unique router ID | 51 |
-| VIRTUAL_IPS | Virtual IP address | 192.168.1.10/24 |
-| UNICAST_SRC_IP | Source IP for unicast | 192.168.1.2 |
-| UNICAST_PEERS | Peer IP address | 192.168.1.3 |
+| ROUTER_ID | Unique router ID | 50 |
+| VIRTUAL_IPS | Virtual IP address | 192.168.1.100/24 |
+| UNICAST_SRC_IP | Source IP for unicast | 192.168.1.11 |
+| UNICAST_PEERS | Peer IP address | 192.168.1.12 |
 
 #### HAProxy Default Settings
 
@@ -71,7 +71,7 @@ docker run -d \
 | Variable | Description | Example |
 |----------|-------------|---------|
 | NAME_FRONTEND | Frontend name | ha-frontend |
-| PORT_FRONTEND | Listen port | 80 |
+| PORT_FRONTEND | Listen port | 5001 |
 | PROTOCOL_FRONTEND | Frontend protocol | tcp |
 | OPTION_FRONTEND | Frontend options | tcplog |
 | DEFAULT_BACKEND | Default backend name | ha-backend |
@@ -90,11 +90,11 @@ docker run -d \
 | Variable | Description | Example |
 |----------|-------------|---------|
 | NAME_SERVER1 | Backend name | backend-server1 |
-| IP_SERVER1 | Server IP address | 192.168.1.4 |
-| PORT_SERVER1 | Listen port | 81 |
+| IP_SERVER1 | Server IP address | 192.168.1.21 |
+| PORT_SERVER1 | Listen port | 6001 |
 | NAME_SERVER2 | Backend name | backend-server2 |
-| IP_SERVER2 | Server IP address | 192.168.1.5 |
-| PORT_SERVER2 | Listen port | 81 |
+| IP_SERVER2 | Server IP address | 192.168.1.22 |
+| PORT_SERVER2 | Listen port | 6002 |
 
 ## 🏗️ Building from Source
 
