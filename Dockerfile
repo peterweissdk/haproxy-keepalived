@@ -2,9 +2,9 @@
 FROM alpine:3.21
 
 # Build arguments
-ARG version
-ARG buildDate
-ARG revision
+# ARG version
+# ARG buildDate
+# ARG revision
 
 # Add labels
 #LABEL "org.opencontainers.image.title"="haproxy-keepalived" \
