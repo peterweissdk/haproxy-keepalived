@@ -18,11 +18,11 @@ A robust, selfhost-ready Docker container combining HAProxy load balancing with 
 - **Fixed Scale**: 2 load balacing/failover deployments, serving 2 backend servers
 - **HAProxy stats**: Near real-time feed of the proxied services
 
-## 🚀 Quick Start ---NO IMAGE ON DOCKER HUB YET!---
+## 🚀 Quick Start
 
 ```bash
 # Pull the image
-docker pull haproxy-keepalived
+docker pull peterweissdk/haproxy-keepalived
 
 # Run with custom configuration
 docker run -d \
