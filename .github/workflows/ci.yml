@@ -40,13 +40,6 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       -
-        name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@v4
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_PASSWD }}
-          repository: peterweissdk/haproxy-keepalived
-      -
         name: Build and push
         uses: docker/build-push-action@v6
         with:
@@ -61,3 +54,10 @@ jobs:
 #            buildDate=$(date +'%Y-%m-%d')
 #            version=latest
 #            revision=$(git rev-parse --short HEAD)
+      -
+        name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWD }}
+          repository: peterweissdk/haproxy-keepalived
