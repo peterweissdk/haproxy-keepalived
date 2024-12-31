@@ -101,8 +101,7 @@ docker run -d \
 ```bash
 git clone https://github.com/peterweissdk/haproxy-keepalived.git
 cd haproxy-keepalived
-docker build -t haproxy-keepalived \
- .
+docker build -t haproxy-keepalived .
 ```
 
 ## 📝 Directory Structure
