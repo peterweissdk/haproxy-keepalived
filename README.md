@@ -99,7 +99,10 @@ docker run -d \
 ## 🏗️ Building from Source
 
 ```bash
+# Clone the repository
 git clone https://github.com/peterweissdk/haproxy-keepalived.git
+
+# Build the image
 cd haproxy-keepalived
 docker build -t haproxy-keepalived .
 ```
