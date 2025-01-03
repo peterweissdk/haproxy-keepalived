@@ -40,61 +40,58 @@ docker run -d \
 #### System Configuration
 
 | Variable | Description | Example |
-|----------|-------------|---------|
-| TZ | System Timezone | Europe/Berlin |
+
+- `TZ`: System Timezone - Europe/Berlin
 
 #### Keepalived Settings
 
 | Variable | Description | Example |
-|----------|-------------|---------|
-| VRRP_INSTANCE | VRRP instance name | VI_1 |
-| INTERFACE | Network interface | eth0 |
-| STATE | Node state (MASTER/BACKUP) | MASTER |
-| PRIORITY | Node priority (1-255) | 100 |
-| ROUTER_ID | Unique router ID | 50 |
-| VIRTUAL_IPS | Virtual IP address | 192.168.1.100/24 |
-| UNICAST_SRC_IP | Source IP for unicast | 192.168.1.11 |
-| UNICAST_PEERS | Peer IP address | 192.168.1.12 |
+
+- `VRRP_INSTANCE`: VRRP instance name - VI_1
+- `INTERFACE`:Network interface - eth0
+- `STATE`: Node state (MASTER/BACKUP) - MASTER
+- `PRIORITY`: Node priority (1-255) - 100
+- `ROUTER_ID`: Unique router ID - 50
+- `VIRTUAL_IPS`: Virtual IP address - 192.168.1.100/24
+- `UNICAST_SRC_IP`: Source IP for unicast - 192.168.1.11
+- `UNICAST_PEERS`: Peer IP address - 192.168.1.12
 
 #### HAProxy Default Settings
 
 | Variable | Description | Example |
-|----------|-------------|---------|
-| PROTOCOL_DEFAULT | Default protocol | tcp |
-| TIMEOUT_CLIENT_DEFAULT | Client timeout (seconds) | 10 |
-| TIMEOUT_CONNECT_DEFAULT | Timeout, connect to a backend server (seconds) | 5 |
-| TIMEOUT_SERVER_DEFAULT | Server timeout (seconds) | 10 |
+- `PROTOCOL_DEFAULT`: Default protocol - tcp
+- `TIMEOUT_CLIENT_DEFAULT`: Client timeout (seconds) - 10
+- `TIMEOUT_CONNECT_DEFAULT`: Timeout, connect to a backend server (seconds) - 5
+- `TIMEOUT_SERVER_DEFAULT`: Server timeout (seconds) - 10
 
 
 #### HAProxy Frontend Settings
 
 | Variable | Description | Example |
-|----------|-------------|---------|
-| NAME_FRONTEND | Frontend name | ha-frontend |
-| PORT_FRONTEND | Listen port | 5001 |
-| PROTOCOL_FRONTEND | Frontend protocol | tcp |
-| OPTION_FRONTEND | Frontend options | tcplog |
-| DEFAULT_BACKEND | Default backend name | ha-backend |
+
+- `NAME_FRONTEND`: Frontend name - ha-frontend
+- `PORT_FRONTEND`: Listen port - 5001
+- `PROTOCOL_FRONTEND`: Frontend protocol - tcp
+- `OPTION_FRONTEND`: Frontend options - tcplog
+- `DEFAULT_BACKEND`: Default backend name - ha-backend
 
 #### HAProxy Backend Settings
 
 | Variable | Description | Example |
-|----------|-------------|---------|
-| NAME_BACKEND | Backend name | ha-backend |
-| PROTOCOL_BACKEND | Backend protocol | tcp |
-| OPTION_BACKEND | Backend options | tcp-check |
-| BALANCE_BACKEND | Server scheduling | roundrubin |
+- `NAME_BACKEND`: Backend name - ha-backend
+- `PROTOCOL_BACKEND`: Backend protocol - tcp
+- `OPTION_BACKEND`: Backend options - tcp-check
+- `BALANCE_BACKEND`: Server scheduling - roundrubin
 
 #### Backend Servers
 
 | Variable | Description | Example |
-|----------|-------------|---------|
-| NAME_SERVER1 | Backend name | backend-server1 |
-| IP_SERVER1 | Server IP address | 192.168.1.21 |
-| PORT_SERVER1 | Listen port | 6001 |
-| NAME_SERVER2 | Backend name | backend-server2 |
-| IP_SERVER2 | Server IP address | 192.168.1.22 |
-| PORT_SERVER2 | Listen port | 6002 |
+- `NAME_SERVER1`: Backend name - backend-server1
+- `IP_SERVER1`: Server IP address - 192.168.1.21
+- `PORT_SERVER1`: Listen port - 6001
+- `NAME_SERVER2`: Backend name - backend-server2
+- `IP_SERVER2`: Server IP address - 192.168.1.22
+- `PORT_SERVER2`: Listen port - 6002
 
 ## 🏗️ Building from Source
 
