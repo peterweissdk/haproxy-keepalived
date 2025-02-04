@@ -28,6 +28,8 @@ docker pull peterweissdk/haproxy-keepalived
 docker run -d \
   --name haproxy-keepalived \
   --cap-add=NET_ADMIN \
+  --cap-add=NET_BROADCAST \
+  --cap-add=NET_RAW \
   --net=host \
   --env-file=.env \
   haproxy-keepalived
