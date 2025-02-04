@@ -32,7 +32,7 @@ docker run -d \
   --cap-add=NET_RAW \
   --net=host \
   --env-file=.env \
-  haproxy-keepalived
+  peterweissdk/haproxy-keepalived
 ```
 
 ## 🔧 Configuration
