@@ -1,0 +1,13 @@
+---
+services:
+  haproxy-keepalived:
+    image: peterweissdk/haproxy-keepalived
+    container_name: haproxy-keepalived
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - NET_BROADCAST
+      - NET_RAW
+    network_mode: host
+    env_file:
+      - .env
