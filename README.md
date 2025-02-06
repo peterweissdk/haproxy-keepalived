@@ -33,6 +33,9 @@ docker run -d \
   --net=host \
   --env-file=.env \
   peterweissdk/haproxy-keepalived
+
+# Run the container using the provided Docker Compose and .env file
+docker compose up -d
 ```
 
 ## 🔧 Configuration
