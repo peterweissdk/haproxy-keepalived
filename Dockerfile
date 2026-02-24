@@ -1,5 +1,5 @@
 # Alpine baseimage. Kernel 6.12 LTS
-FROM alpine:3.21
+FROM alpine:3.23
 
 # Build arguments
 # ARG version
