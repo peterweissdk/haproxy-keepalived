@@ -1,0 +1,142 @@
+# Name of the workflow as it appears in the GitHub Actions tab
+name: haproxy-keepalived_image
+
+on:
+  # Runs automatically every day at 07:31 UTC to keep images fresh
+  schedule:
+    - cron: '31 7 * * *'
+  # Runs whenever code is pushed to the 'main' branch
+  push:
+    branches: [ "main" ]
+    # Also runs when a version tag (e.g., v1.0.2) is pushed
+    tags: [ 'v*.*.*' ]
+  # Runs on any Pull Request targeting the 'main' branch (usually for testing the build)
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  # Defines where to push the image (GitHub Container Registry)
+  REGISTRY: ghcr.io
+  # Uses the repository name (e.g., username/repo-name) as the image name
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Permissions required to read code, write to the registry, and sign images
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      # 1. Pulls the source code from the repository into the runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Installs Cosign, used for cryptographically signing the image
+      # Skip this on Pull Requests because we don't sign untrusted code
+      - name: Install cosign
+        if: github.event_name != 'pull_request'
+        uses: sigstore/cosign-installer@v3.5.0
+        with:
+          cosign-release: 'v2.2.4'
+
+      # 3. Sets up QEMU for multi-architecture builds
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      # 4. Sets up Docker Buildx (extended build capabilities, like caching)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3.0.0
+
+      # 4. Logs into the GitHub Container Registry using the runner's temporary token
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3.0.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # 4b. Logs into Docker Hub
+      - name: Log into Docker Hub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3.0.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # 5. Determines what the image version tags should be
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}
+          tags: |
+            # If a git tag like v1.2.3 is pushed, create a Docker tag v1.2.3
+            type=semver,pattern={{version}}
+            # Always tag as 'latest' when pushing specifically to the main branch
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+
+      # 7. The "heavy lifting": Builds the Dockerfile and pushes it to the registry
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@v5.0.0
+        with:
+          context: .
+          # Build for multiple architectures
+          platforms: linux/amd64,linux/arm64
+          # Push to registry unless it's just a Pull Request check
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          # Use GitHub Actions cache to speed up subsequent builds
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # 7. Signs the image so users can verify it actually came from your workflow
+      - name: Sign the published Docker image
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          TAGS: ${{ steps.meta.outputs.tags }}
+          DIGEST: ${{ steps.build-and-push.outputs.digest }}
+        run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+
+  # SECOND JOB: Update Docker Hub README
+  update-dockerhub-readme:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name != 'pull_request'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update Docker Hub description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}
+          readme-filepath: ./README.md
+
+  # THIRD JOB: Maintenance
+  # Deletes images that no longer have a name/tag (leftovers from previous builds)
+  cleanup:
+    runs-on: ubuntu-latest
+    needs: build # Wait for the build to finish first
+    if: github.event_name != 'pull_request'
+    permissions:
+      packages: write
+    steps:
+      - name: Delete old untagged images
+        uses: snok/container-retention-policy@v3.0.1
+        with:
+          image-names: ${{ github.event.repository.name }}
+          cut-off: 1d
+          keep-n-most-recent: 3
+          image-tags: "!latest"
+          account: user
+          token: ${{ secrets.PAT_GIT_ACTION }}
