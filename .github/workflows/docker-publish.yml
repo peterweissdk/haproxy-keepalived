@@ -44,16 +44,16 @@ jobs:
 
       # 3. Sets up QEMU for multi-architecture builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v3.6.0
 
       # 4. Sets up Docker Buildx (extended build capabilities, like caching)
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.0.0
+        uses: docker/setup-buildx-action@v3.10.0
 
       # 4. Logs into the GitHub Container Registry using the runner's temporary token
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3.0.0
+        uses: docker/login-action@v3.4.0
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -62,7 +62,7 @@ jobs:
       # 4b. Logs into Docker Hub
       - name: Log into Docker Hub
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3.0.0
+        uses: docker/login-action@v3.4.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -70,7 +70,7 @@ jobs:
       # 5. Determines what the image version tags should be
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v5.7.0
         with:
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
@@ -84,7 +84,7 @@ jobs:
       # 7. The "heavy lifting": Builds the Dockerfile and pushes it to the registry
       - name: Build and push Docker image
         id: build-and-push
-        uses: docker/build-push-action@v5.0.0
+        uses: docker/build-push-action@v6.18.0
         with:
           context: .
           # Build for multiple architectures

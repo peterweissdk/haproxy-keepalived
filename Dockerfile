@@ -1,5 +1,5 @@
-# Alpine baseimage. Kernel 6.12 LTS
-FROM alpine:3.23
+# Alpine baseimage
+FROM alpine:3.24
 
 # Build arguments
 # ARG version
@@ -20,13 +20,13 @@ FROM alpine:3.23
 
 # Install required packages
 RUN apk add --no-cache \
-    haproxy=3.2.13-r0 \
-    keepalived=2.3.4-r1 \
-    supervisor=4.3.0-r0 \
-    ipvsadm=1.31-r3 \
-    iproute2=6.17.0-r0 \
-    gettext=0.24.1-r1 \
-    socat=1.8.0.3-r1 && \
+    haproxy \
+    keepalived \
+    supervisor \
+    ipvsadm \
+    iproute2 \
+    gettext \
+    socat && \
     rm -rf /var/cache/apk/*
 
 # Create necessary directories for supervisor
